@@ -1,0 +1,33 @@
+{
+  "name": "the-ledger",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "The Ledger — a dark-comedy emotional bookkeeping app. Offline, no login, on-device.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx",
+    "cap:sync": "npm run build && npx cap sync android",
+    "cap:open": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.6.9",
+    "@capacitor/core": "^7.6.9",
+    "@capacitor/filesystem": "^7.1.9",
+    "@capacitor/share": "^7.0.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.6.9",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.4"
+  },
+  "//": "Versions are indicative. Run `npm install` to resolve current compatible releases; bump majors as needed. Capacitor deps are added during the Android handoff (see capacitor.config.ts)."
+}
