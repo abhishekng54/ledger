@@ -1,0 +1,23 @@
+/* Root styling. The app paints its own background via inline styles; this just
+   ensures a full-height shell and respects device safe areas when wrapped
+   natively (Capacitor/Android). */
+:root {
+  color-scheme: light dark;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  -webkit-font-smoothing: antialiased;
+}
+#root {
+  min-height: 100%;
+}
