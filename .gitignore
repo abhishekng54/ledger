@@ -5,8 +5,7 @@ node_modules/
 dist/
 dist-ssr/
 
-# capacitor native projects (generated)
-android/
+# unused native platform
 ios/
 
 # editor / os
