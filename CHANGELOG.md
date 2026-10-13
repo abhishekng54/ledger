@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.0.1] - 2026-10-13
+
 ### Added
 
 - Three rooms, each with its own stats: **The Receipts** (a Top Offenders leaderboard and a Villain of the Month), **Bit My Tongue** (the Vault of lines you never said) and **Taking the L** (a weekly chart that only crashes).
@@ -15,4 +17,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Export of every entry to a CSV file that opens correctly in Excel. On Android it opens the share sheet.
 - Works fully offline, with no account, ads or tracking. Requires Android 6.0 or newer.
 
-[Unreleased]: https://github.com/abhishekng54/ledger/commits/main
+[Unreleased]: https://github.com/abhishekng54/ledger/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/abhishekng54/ledger/releases/tag/v0.0.1
