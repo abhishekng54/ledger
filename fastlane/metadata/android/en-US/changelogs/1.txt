@@ -1,0 +1,1 @@
+First release. Three rooms (The Receipts, Bit My Tongue, Taking the L) with their own stats, a calendar to log any date, light and dark themes that follow your device until you choose one, and CSV export.
