@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "description": "Ledger — a dark-comedy emotional bookkeeping app. Offline, no login, on-device.",
+  "description": "Ledger — a private, offline emotional ledger. Log grudges, unsaid words and setbacks, and see the patterns.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
