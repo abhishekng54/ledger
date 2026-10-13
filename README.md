@@ -55,8 +55,8 @@ The steps below were verified from a clean clone on macOS with Node 20.18, npm 1
 All commands run from the repository root.
 
 ```bash
-git clone https://github.com/abhishekng54/the-ledge.git
-cd the-ledge
+git clone https://github.com/abhishekng54/ledger.git
+cd ledger
 npm ci            # install exact dependency versions from package-lock.json
 npm run dev       # dev server at http://localhost:5173
 ```
