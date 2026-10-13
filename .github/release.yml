@@ -1,0 +1,19 @@
+# Groups the auto-generated release notes on GitHub by pull request label.
+# Label pull requests: enhancement (features), bug (fixes), documentation.
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+  categories:
+    - title: New features
+      labels:
+        - enhancement
+    - title: Bug fixes
+      labels:
+        - bug
+    - title: Documentation
+      labels:
+        - documentation
+    - title: Other changes
+      labels:
+        - "*"
