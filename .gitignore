@@ -20,3 +20,7 @@ npm-debug.log*
 
 # ts build cache
 *.tsbuildinfo
+
+# built packages are published as GitHub release assets, not committed
+*.apk
+*.aab
