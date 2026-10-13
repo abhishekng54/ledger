@@ -1,7 +1,7 @@
 {
   "name": "ledger",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.1",
   "type": "module",
   "description": "Ledger — a dark-comedy emotional bookkeeping app. Offline, no login, on-device.",
   "scripts": {

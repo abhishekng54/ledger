@@ -25,11 +25,11 @@ React 18 · TypeScript 5 · Vite 5 · Capacitor 7 (Android) with the Filesystem 
 
 ## Install the prebuilt app
 
-A debug build is checked in at [`releases/ledger-debug.apk`](releases/ledger-debug.apk). It is meant for trying the app, not for the Play Store.
+Every [GitHub release](https://github.com/abhishekng54/ledger/releases) includes a debug build, `ledger-debug.apk`. It is meant for trying the app, not for the Play Store.
 
-1. Copy the APK to an Android 6.0+ phone, or download it from GitHub on the phone.
+1. Download `ledger-debug.apk` from the [latest release](https://github.com/abhishekng54/ledger/releases/latest) on an Android 6.0+ phone, or copy it there.
 2. Open it and allow installs from this source when prompted.
-3. Or, with USB debugging enabled: `adb install -r releases/ledger-debug.apk`.
+3. Or, with USB debugging enabled: `adb install -r ledger-debug.apk`.
 
 If you previously installed a build signed with a different key, uninstall it first.
 
@@ -55,8 +55,8 @@ The steps below were verified from a clean clone on macOS with Node 20.18, npm 1
 All commands run from the repository root.
 
 ```bash
-git clone https://github.com/abhishekng54/the-ledge.git
-cd the-ledge
+git clone https://github.com/abhishekng54/ledger.git
+cd ledger
 npm ci            # install exact dependency versions from package-lock.json
 npm run dev       # dev server at http://localhost:5173
 ```
@@ -90,7 +90,7 @@ Run `npm run cap:sync` again whenever the web code changes, so the new build is 
 
 ### Release build
 
-The repo ships only a debug build. To publish your own signed build, follow the standard Android procedure:
+Releases ship only a debug build. To publish your own signed build, follow the standard Android procedure:
 
 1. Create a keystore with `keytool -genkey -v -keystore ledger-release.jks -keyalg RSA -keysize 2048 -validity 10000 -alias ledger`.
 2. Add a signing configuration to `android/app/build.gradle`, reading the passwords from a local, untracked file.
@@ -104,7 +104,8 @@ Each release needs:
 
 1. A higher `versionCode` and a new `versionName` in `android/app/build.gradle`, with the same version in `package.json`.
 2. A changelog at `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt` (500 characters at most).
-3. A git tag named `v<versionName>` (for example `v1.0.0`) on the release commit, created after the change is merged into `main`.
+3. A git tag named `v<versionName>` (for example `v0.0.1`) on the release commit, created after the change is merged into `main`.
+4. A GitHub release for that tag, with the debug APK built from the tagged commit attached as `ledger-debug.apk`. APKs are not committed to the repository.
 
 The store listing text lives in `fastlane/metadata/android/en-US/` and is the format F-Droid reads from the source repository.
 
@@ -127,7 +128,6 @@ The code is deliberately modular, so rooms and copy can change without ripple ef
 ```
 android/              Native Android project (Capacitor)
 fastlane/             Store listing text and changelogs
-releases/             Prebuilt debug APK
 src/
 ├── types/            Domain types, the shared contract (Entry, RoomConfig, ...)
 ├── constants/
