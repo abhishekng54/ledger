@@ -1,13 +1,13 @@
-Ledger is a dark-comedy "emotional bookkeeping" app. Log who wronged you, what you bit your tongue on, and what you lost, and let the books do the talking.
+Ledger is a private place to log the things that stay with you, and to see the patterns in them. It has a sense of humour about all of it.
 
-One app, three rooms:
+You keep three accounts, each pointing in a different emotional direction:
 
 <ul>
-<li><b>The Receipts</b>: log who wronged you and watch a Top Offenders leaderboard and a Villain of the Month take shape.</li>
-<li><b>Bit My Tongue</b>: log the things you held back and build a Vault of lines you never said.</li>
+<li><b>The Receipts</b>: log who wronged you and what they did, and watch a Top Offenders leaderboard and a Villain of the Month take shape.</li>
+<li><b>Bit My Tongue</b>: log the times you held back, and build a Vault of the lines you never said.</li>
 <li><b>Taking the L</b>: log your losses and get a weekly chart that only crashes.</li>
 </ul>
 
-Logging is tap-first: one tap records an entry and fires a voice line, and the details are optional. Log to today or pick any date from the calendar. Switch between light and dark themes, or let the app follow your device. Export everything to a CSV file that opens correctly in spreadsheet apps.
+Logging is tap-first: one tap records an entry and answers with a deadpan line, and the details are optional. Log to today or pick any date from the calendar. Use the light or dark theme, or let the app follow your device. Export everything to a CSV file that opens in spreadsheet apps.
 
 Everything stays on your device. No accounts, no ads, no tracking.
