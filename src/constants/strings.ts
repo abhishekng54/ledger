@@ -8,7 +8,7 @@
 
 export const STRINGS = {
   app: {
-    wordmark: "THE\u00A0LEDGER", // non-breaking space keeps it on one line
+    wordmark: "LEDGER",
     subline: "Your emotional bookkeeping. Three accounts open.",
     kicker: "NO LOGIN \u00B7 OFFLINE \u00B7 ON THIS DEVICE",
     footer:
