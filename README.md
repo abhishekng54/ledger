@@ -23,15 +23,17 @@ One app, three rooms:
 
 React 18 · TypeScript 5 · Vite 5 · Capacitor 7 (Android) with the Filesystem and Share plugins. There is no backend and the app makes no network calls.
 
-## Install the prebuilt app
+## Download and install
 
-Every [GitHub release](https://github.com/abhishekng54/ledger/releases) includes a debug build, `ledger-debug.apk`. It is meant for trying the app, not for the Play Store.
+**[Download the latest version](https://github.com/abhishekng54/ledger/releases/latest)**
 
-1. Download `ledger-debug.apk` from the [latest release](https://github.com/abhishekng54/ledger/releases/latest) on an Android 6.0+ phone, or copy it there.
-2. Open it and allow installs from this source when prompted.
-3. Or, with USB debugging enabled: `adb install -r ledger-debug.apk`.
+1. On your Android phone, open the link above. Under **Assets**, tap `ledger-<version>.apk`. Your phone downloads the file.
+2. Open the downloaded file and tap **Install**. If Android asks, allow installs from your browser ("Install unknown apps"). This is normal for apps that don't come from an app store.
+3. Open **Ledger**.
 
-If you previously installed a build signed with a different key, uninstall it first.
+It needs Android 6.0 or newer. What changed in each version is listed on the [releases page](https://github.com/abhishekng54/ledger/releases) and in the [changelog](CHANGELOG.md).
+
+If you previously installed a build signed with a different key, uninstall it first. Developers can also install with `adb install -r ledger-<version>.apk`.
 
 The application ID is `io.github.abhishekng54.ledger`. An earlier build with the ID `com.theledger.app` is a separate app and is not upgraded: export a CSV from it, then uninstall it.
 
@@ -90,22 +92,35 @@ Run `npm run cap:sync` again whenever the web code changes, so the new build is 
 
 ### Release build
 
-Releases ship only a debug build. To publish your own signed build, follow the standard Android procedure:
+To publish a signed build, follow the standard Android procedure:
 
 1. Create a keystore with `keytool -genkey -v -keystore ledger-release.jks -keyalg RSA -keysize 2048 -validity 10000 -alias ledger`.
 2. Add a signing configuration to `android/app/build.gradle`, reading the passwords from a local, untracked file.
 3. Run `./gradlew bundleRelease` for a Play Store bundle (`.aab`), or `./gradlew assembleRelease` for an APK.
+4. An APK from `assembleRelease` is unsigned. Align and sign it before it will install:
+   ```bash
+   BT=$ANDROID_HOME/build-tools/34.0.0
+   $BT/zipalign -p -f 4 app/build/outputs/apk/release/app-release-unsigned.apk ledger-<version>.apk
+   $BT/apksigner sign --ks ledger-release.jks --ks-key-alias ledger ledger-<version>.apk
+   $BT/apksigner verify ledger-<version>.apk
+   ```
 
 Never commit the keystore or its passwords.
 
 ## Releasing
 
-Each release needs:
+Versions follow [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`), and release notes follow [Keep a Changelog](https://keepachangelog.com/).
 
-1. A higher `versionCode` and a new `versionName` in `android/app/build.gradle`, with the same version in `package.json`.
-2. A changelog at `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt` (500 characters at most).
-3. A git tag named `v<versionName>` (for example `v0.0.1`) on the release commit, created after the change is merged into `main`.
-4. A GitHub release for that tag, with the debug APK built from the tagged commit attached as `ledger-debug.apk`. APKs are not committed to the repository.
+For each release:
+
+1. In `CHANGELOG.md`, move the entries under **Unreleased** to a new `## [x.y.z] - YYYY-MM-DD` heading, grouped as Added, Changed, Fixed or Removed, and update the links at the bottom of the file.
+2. Raise `versionCode` by one and set the new `versionName` in `android/app/build.gradle`, with the same version in `package.json`.
+3. Add `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt` (500 characters at most).
+4. Merge those changes into `main` through a pull request.
+5. Build and sign the release APK (see [Release build](#release-build)) and name it `ledger-<versionName>.apk`.
+6. Tag the merge commit on `main` as `v<versionName>` (for example `v0.0.1`), then create a GitHub release from that tag: the title `Ledger <versionName>`, the notes copied from the changelog section (or **Generate release notes**), and the APK attached. APKs are not committed to the repository.
+
+Label pull requests `enhancement`, `bug` or `documentation`, so the generated release notes group them under New features, Bug fixes and Documentation.
 
 The store listing text lives in `fastlane/metadata/android/en-US/` and is the format F-Droid reads from the source repository.
 
