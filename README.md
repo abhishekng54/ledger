@@ -104,7 +104,7 @@ Each release needs:
 
 1. A higher `versionCode` and a new `versionName` in `android/app/build.gradle`, with the same version in `package.json`.
 2. A changelog at `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt` (500 characters at most).
-3. A git tag named `v<versionName>` (for example `v1.0.0`) on the release commit, created after the change is merged into `main`.
+3. A git tag named `v<versionName>` (for example `v0.0.1`) on the release commit, created after the change is merged into `main`.
 
 The store listing text lives in `fastlane/metadata/android/en-US/` and is the format F-Droid reads from the source repository.
 
