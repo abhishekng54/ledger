@@ -11,8 +11,8 @@ export const STORAGE_KEYS = {
 
 /** App identity (kept in sync with capacitor.config + manifest). */
 export const APP = {
-  name: "The Ledger",
-  packageId: "com.theledger.app",
+  name: "Ledger",
+  packageId: "io.github.abhishekng54.ledger",
 } as const;
 
 /** CSV export settings. */
@@ -20,7 +20,7 @@ export const CSV = {
   /** Column order in the exported file. */
   columns: ["account", "date", "who", "what", "logged_at"] as const,
   /** Filename prefix; the active date is appended. */
-  filenamePrefix: "the-ledger",
+  filenamePrefix: "ledger",
   /** Prepend a UTF-8 BOM so Excel opens it with correct encoding. */
   useBom: true,
 } as const;

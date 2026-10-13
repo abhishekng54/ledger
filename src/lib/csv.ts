@@ -39,7 +39,7 @@ export function buildCsv(entries: Entry[]): string {
   return [header, ...rows].map((r) => r.map(csvCell).join(",")).join("\r\n");
 }
 
-/** The export filename for today, e.g. "the-ledger-2026-06-27.csv". */
+/** The export filename for today, e.g. "ledger-2026-06-27.csv". */
 export function csvFilename(): string {
   return `${CSV.filenamePrefix}-${todayISO()}.csv`;
 }

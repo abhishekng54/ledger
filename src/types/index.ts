@@ -1,5 +1,5 @@
 /**
- * Core domain types for The Ledger.
+ * Core domain types for Ledger.
  * These are the single source of truth for the app's data shapes.
  */
 
