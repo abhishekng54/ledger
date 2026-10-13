@@ -1,27 +1,40 @@
+<div align="center">
+
 # Ledger
 
-A dark-comedy "emotional bookkeeping" app for Android (and the web). Log who wronged you, what you bit your tongue on, and what you lost. The app keeps the books.
+**A private emotional ledger for the things that stay with you.**
 
-**Offline. No login. No tracking. Everything stays on your device.**
+Log who wronged you, what you held back and what went wrong, then see the patterns. It works offline, keeps everything on your phone, and has a sense of humour about all of it.
+
+[![Latest release](https://img.shields.io/github/v/release/abhishekng54/ledger?label=release)](https://github.com/abhishekng54/ledger/releases/latest)
+[![License](https://img.shields.io/github/license/abhishekng54/ledger)](LICENSE)
+![Android 6.0+](https://img.shields.io/badge/Android-6.0%2B-3DDC84?logo=android&logoColor=white)
+
+**[Download the latest version](https://github.com/abhishekng54/ledger/releases/latest)** · [What's new](CHANGELOG.md) · [Build from source](#build-from-source)
+
+</div>
+
+## What is Ledger?
+
+Ledger is a quick, private way to keep track of the feelings that usually go unrecorded. Instead of a mood score or a diary entry, you keep three accounts, each pointing in a different emotional direction, and tap to log an entry the moment something happens. The stats are the point: over time you see who keeps landing on your list, what you keep holding back, and how your setbacks add up.
+
+It does this with a deadpan sense of humour. Every log is answered with a short line in that account's voice, which takes the pressure off tracking.
+
+## The three accounts
+
+| Account | Points at | You log | You get |
+| --- | --- | --- | --- |
+| **The Receipts** | Others | Who wronged you, and what they did | A Top Offenders leaderboard and a Villain of the Month |
+| **Bit My Tongue** | Restraint | The times you held back, and the line you didn't say | The Vault of lines you never said |
+| **Taking the L** | Yourself | Your losses | A weekly chart that only crashes |
 
 ## Features
 
-One app, three rooms:
-
-| Room | What you log | What you get |
-| --- | --- | --- |
-| **The Receipts** | Who wronged you | A Top Offenders leaderboard and a Villain of the Month |
-| **Bit My Tongue** | What you held back | The Vault of lines you never said |
-| **Taking the L** | Your losses | A weekly chart that only crashes |
-
-- **Tap-first logging.** One tap logs an entry and fires a voice line; details are optional and never block logging.
+- **Tap first, type optional.** One tap logs an entry and plays a voice line; the details are optional and never block logging.
 - **Any date.** Log to today or pick a day from the calendar.
-- **Light and dark themes.** The app follows the device's setting until you tap the theme toggle; after that your choice is saved and used on every launch.
-- **Export.** Download or share every entry as a CSV file that opens correctly in Excel. On Android it opens the native share sheet; in a browser it downloads the file.
-
-## Tech stack
-
-React 18 · TypeScript 5 · Vite 5 · Capacitor 7 (Android) with the Filesystem and Share plugins. There is no backend and the app makes no network calls.
+- **Light and dark themes.** The app follows your phone's setting until you pick one with the toggle, and then remembers your choice.
+- **Export.** Save or share every entry as a CSV file that opens correctly in Excel. On Android it opens the share sheet.
+- **Private by design.** No account, no ads, no tracking, and it works fully offline.
 
 ## Download and install
 
@@ -37,7 +50,17 @@ If you previously installed a build signed with a different key, uninstall it fi
 
 The application ID is `io.github.abhishekng54.ledger`. An earlier build with the ID `com.theledger.app` is a separate app and is not upgraded: export a CSV from it, then uninstall it.
 
+## Privacy
+
+No network calls, no analytics, no accounts. Entries are stored in the app's local storage on your device, so they are removed if you uninstall the app or clear its data. Use the CSV export to keep a copy.
+
+---
+
+*The rest of this page is for people who want to build the app or contribute.*
+
 ## Build from source
+
+Built with React 18, TypeScript 5, Vite 5 and Capacitor 7 (Android), with the Filesystem and Share plugins. There is no backend and the app makes no network calls.
 
 ### Prerequisites
 
@@ -200,10 +223,6 @@ Do not commit `node_modules/`, `dist/`, build output, keystores or local environ
 | `Could not find the web assets directory: ./dist` | Run `npm run build` first (`npm run cap:sync` does this for you). |
 | The phone refuses to install the APK | Allow installs from unknown sources for the app you opened it with, and uninstall any earlier build signed with a different key. |
 | Changes don't show up in the app | Run `npm run cap:sync` before building the APK, so the new web build is copied in. |
-
-## Privacy
-
-No network calls, no analytics, no accounts. Entries are stored in the app's local storage on the device, so they are removed if you uninstall the app or clear its data. Use the CSV export to keep a copy.
 
 ## License
 
